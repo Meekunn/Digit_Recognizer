@@ -9,3 +9,5 @@ A dynamic digit recognizer app in progress, enabling users to handwrite on a can
 - ANN for digit recognition
 - Flask web app
 - Active development
+
+To run app: `export FLASK_APP=app.py && export FLASK_DEBUG=1 && flask run`
