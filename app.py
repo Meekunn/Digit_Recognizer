@@ -19,6 +19,7 @@ def models():
 	return model
 
 new_model = models()
+new_model.make_predict_function()
 
 # Now you can use the new_model for predictions or further training
 
