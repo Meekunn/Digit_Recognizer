@@ -3,8 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	const clearBtn = document.getElementById('clear-btn');
 	const sendBtn = document.getElementById('send-btn');
 	const ctx = canvas.getContext('2d');
+	ctx.lineWidth = 8;
 
 	let isDrawing = false;
+	let isErasing = false;
 
 	canvas.addEventListener('mousedown', startDrawing);
 	canvas.addEventListener('mousemove', draw);
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	function draw(e) {
 		if (!isDrawing) return;
 		ctx.beginPath();
-		ctx.fillStyle = 'blue';
+		ctx.fillStyle = '#6efad9';
 		ctx.fillRect(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop, 5, 5);
 		ctx.stroke();
 		ctx.closePath();
@@ -29,6 +31,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function stopDrawing() {
 		isDrawing = false;
+	}
+
+	function startErasing() {
+		isErasing = true;
+		erase(e);
+	}
+
+	function erase(e) {
+		if (!isDrawing) return;
+		ctx.globalCompositeOperation = 'destination-out'; // Set composite mode to erase
+		ctx.beginPath();
+		ctx.fillStyle = 'rgba(0, 0, 0, 0)'; // Transparent color to erase
+		ctx.fillRect(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop, 10, 10); // Adjust the size as needed
+		ctx.stroke();
+		ctx.closePath();
+		ctx.globalCompositeOperation = 'source-over'; // Reset composite mode
+	}
+
+	function stopErasing() {
+		isErasing = false;
 	}
 
 	function clearCanvas() {
@@ -72,4 +94,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				console.error('Error sending image:', error);
 			});
 	}
+
+	canvas.addEventListener('mousedown', startErasing);
+	canvas.addEventListener('mousemove', erase);
+	canvas.addEventListener('mouseup', stopErasing);
 });
