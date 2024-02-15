@@ -12,6 +12,6 @@ A dynamic digit recognizer app in progress, enabling users to handwrite on a can
 
 To run app: `export FLASK_APP=app.py && export FLASK_DEBUG=1 && flask run`
 
-<img align='center' alt='web app ui' width='' src='./static/images/empty.png'>
-<img align='center' alt='web app ui with correct prediction' width='' src='./static/images/correct_pred.png'>
-<img align='center' alt='web app ui with wrong prediction' width='' src='./static/images/wrong_pred.png'>
+<img align='center' alt='web app ui' width='200px' src='./static/images/empty.png'>
+<img align='center' alt='web app ui with correct prediction' width='200px' src='./static/images/correct_pred.png'>
+<img align='center' alt='web app ui with wrong prediction' width='200px' src='./static/images/wrong_pred.png'>
