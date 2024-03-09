@@ -4,11 +4,11 @@ A dynamic digit recognizer app in progress, enabling users to handwrite on a can
 
 ## Features:
 
-- User-friendly canvas interface
+- User-friendly web interface
 - Backend processing with OpenCV
 - ANN for digit recognition
 - Flask web app
-- Active development
+- Google colab for model building and training
 
 To run app: `export FLASK_APP=app.py && export FLASK_DEBUG=1 && flask run`
 
